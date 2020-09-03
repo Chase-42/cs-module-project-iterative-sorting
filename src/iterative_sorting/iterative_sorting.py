@@ -1,3 +1,4 @@
+
 # TO-DO: Complete the selection_sort() function below
 def selection_sort(arr):
     # loop through n-1 elements
@@ -7,15 +8,16 @@ def selection_sort(arr):
         # TO-DO: find next smallest element
         # (hint, can do in 3 loc)
         # Your code here
-        for j in range(i + 1, len(arr)):
-            # If element in array is lexx than smallest_index
-            if arr[j] < arr[smallest_index]:
-                smallest_index = j
 
+        while smallest_index < len(arr) - 1:
+            smallest_index += 1
+            if arr[cur_index] > arr[smallest_index]:
 
         # TO-DO: swap
         # Your code here
-        arr[smallest_index], arr[cur_index] = arr[cur_index], arr[smallest_index]
+                smallest_elemet = arr[smallest_index]
+                arr[smallest_index] = arr[cur_index]
+                arr[cur_index] = smallest_elemet
 
     return arr
 
@@ -24,6 +26,21 @@ def selection_sort(arr):
 def bubble_sort(arr):
     # Your code here
 
+    cur_index = 0
+    swap = False
+    while cur_index < len(arr) - 1:
+        neighbor_index = cur_index + 1
+        if arr[cur_index] > arr[neighbor_index]:
+            neighbor_element = arr[neighbor_index]
+            arr[neighbor_index] = arr[cur_index]
+            arr[cur_index] = neighbor_element
+            swap = True
+        # check to see if no swaps were made
+        if swap:
+            cur_index = 0
+            swap = False
+        else:
+            cur_index += 1
 
     return arr
 
